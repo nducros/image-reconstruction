@@ -11,7 +11,7 @@ from skimage.transform import radon, iradon
 from pathlib import Path
 
 #%% load image and rescale to (0,1)
-image_file = Path('./data/ct_image_0.png')
+image_file = Path('./data-lesson/ct_image_0.png')
 save_folder = Path('lesson')
 
 imag = plt.imread(image_file)
@@ -54,8 +54,7 @@ plt.ylabel(r'$x_2$ (in pixels)')
 plt.colorbar()
 
 #%% load image and rescale to (0,1)
-# todo | load ct_image_xx.png for xx = 0..2
-image_file = 'ct_image_5.png'
+image_file = Path('./data-lesson/ct_image_5.png')
 imag = plt.imread(image_file)
 
 # rescale
@@ -67,7 +66,9 @@ plt.imshow(imag, cmap='gray')
 plt.xlabel(r'$x_1$ (in pixels)')
 plt.ylabel(r'$x_2$ (in pixels)')
 plt.colorbar()
-plt.close()
+
+# save for lecture
+plt.savefig(save_folder / (image_file.stem + '.pdf'),bbox_inches='tight')
 
 #%% backprojection
 
@@ -105,5 +106,36 @@ for n in [1,2,4,16,32,64,128]:
     
     # save for lecture
     plt.savefig(save_folder / f'{image_file.stem}_fbp_{n:03}.pdf',
+                bbox_inches='tight')
+    plt.close()
+
+#%% load image and rescale to (0,1)
+image_file = Path('./data-lesson/ct_image_5.png')
+imag = plt.imread(image_file)
+
+# rescale
+imag = imag[:,:,:-1].sum(-1)
+imag = (imag - imag.min())/(imag.max() - imag.min())
+
+# Noisy synogram
+theta = np.linspace(0.0, 180.0, 256+1)[:-1]
+prct = 0.1      # noise percentage
+np.random.seed(1)  # for reproducibility
+sinog = radon(imag, circle=False, theta=theta)
+
+filter_list = ['ramp', 'shepp-logan', 'cosine', 'hamming', 'hann']
+
+for f in filter_list:
+    sinog += prct*sinog.max()*np.random.standard_normal(size=sinog.shape)
+    retro = iradon(sinog, circle=False, theta=theta, filter_name=f)
+
+    # plot
+    plt.imshow(retro, cmap='gray')
+    plt.xlabel(r'$x_1$ (in pixels)')
+    plt.ylabel(r'$x_2$ (in pixels)')
+    plt.colorbar()
+
+    # save for lecture
+    plt.savefig(save_folder / f'{image_file.stem}_{f}.pdf',
                 bbox_inches='tight')
     plt.close()
