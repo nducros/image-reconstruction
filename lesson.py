@@ -120,6 +120,7 @@ imag = (imag - imag.min())/(imag.max() - imag.min())
 # Noisy synogram
 theta = np.linspace(0.0, 180.0, 256+1)[:-1]
 prct = 0.1      # noise percentage
+vmin, vmax = None, None
 np.random.seed(1)  # for reproducibility
 sinog = radon(imag, circle=False, theta=theta)
 
@@ -130,7 +131,7 @@ for f in filter_list:
     retro = iradon(sinog, circle=False, theta=theta, filter_name=f)
 
     # plot
-    plt.imshow(retro, cmap='gray')
+    plt.imshow(retro, cmap='gray', vmin=vmin, vmax=vmax)
     plt.xlabel(r'$x_1$ (in pixels)')
     plt.ylabel(r'$x_2$ (in pixels)')
     plt.colorbar()
