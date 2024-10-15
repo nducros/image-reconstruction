@@ -6,8 +6,8 @@
 * I have absolutely no idea what `solution.py` is, but I strongly recommend that you do not look at it right now!
 
 ## Exercise
-* Compute the Radon transform of `ct_image_xx.png` for load image for `xx` = 0, 1, and 2.
-* Reconstruct the image corresponding to `ct_image_xx_sinog.png` for load image for `xx` = 4 and 5.
+* Compute the Radon transform of `ct_image_xx.png` for `xx` = 0, 1, and 2.
+* Reconstruct the image corresponding to `ct_image_xx_sinog.png` for `xx` = 4 and 5.
 * To do so, complete the code template `exercise.py`
 
 ### How to get the code?
