@@ -20,7 +20,6 @@
 ### How to download the images and sinograms?
 * Windows PowerShell
     ```powershell
-    cd exercise
     wget https://www.creatis.insa-lyon.fr/~ducros/AR/data.zip -OutFile data.zip
     tar xvf data.zip
     ```
@@ -29,5 +28,5 @@
     ```shell
     cd exercise
     wget https://www.creatis.insa-lyon.fr/~ducros/AR/data.zip
-    unzip xvf data.zip
+    unzip -xvf data.zip
     ```
