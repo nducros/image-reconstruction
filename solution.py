@@ -57,3 +57,19 @@ plt.imshow(recon, cmap='gray')
 plt.xlabel(r'$x_1$ (in pixels)')
 plt.ylabel(r'$x_2$ (in pixels)')
 plt.colorbar()
+
+#%% Reconstruct with 2% additive Gaussian noise using different filters (e.g.,
+# ramp, cosine, hann, None)
+
+prct = 0.02 # noise percentage
+filter_name = 'ramp' # E.g., 'ramp', 'shepp-logan', 'cosine', 'hamming', 'hann', None
+
+# Add noise and reconstruct
+sinog_noise = sinog + prct*sinog.max()*np.random.standard_normal(size=sinog.shape)
+recon = iradon(sinog_noise, circle=False, theta=theta, filter_name=filter_name)
+
+# plot | todo: specify axis and units
+plt.imshow(recon, cmap='gray')
+plt.xlabel(r'$x_1$ (in pixels)')
+plt.ylabel(r'$x_2$ (in pixels)')
+plt.colorbar()

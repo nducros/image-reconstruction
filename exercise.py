@@ -48,3 +48,19 @@ recon =
 # plot | todo: specify axis and units
 plt.imshow(recon, cmap='gray')
 plt.colorbar()
+
+#%% Reconstruct with 2% additive Gaussian noise using different filters (e.g.,
+# ramp, cosine, hann, None)
+
+prct = 0.02 # noise percentage
+filter_name = 'ramp' # E.g., 'ramp', 'shepp-logan', 'cosine', 'hamming', 'hann', None
+
+# Add noise and reconstruct
+sinog_noise = sinog + # complete
+recon = iradon(sinog_noise, circle=False, theta=theta, ) # complete
+
+# plot | todo: specify axis and units
+plt.imshow(recon, cmap='gray')
+plt.xlabel(r'$x_1$ (in pixels)')
+plt.ylabel(r'$x_2$ (in pixels)')
+plt.colorbar()
