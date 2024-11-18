@@ -5,11 +5,7 @@
 * The `exercise.py` script is a code template for solving the exercises.
 * I have absolutely no idea what `solution.py` is, but I strongly recommend that you do not look at it right now!
 
-## Exercise
-* Compute the Radon transform of `ct_image_xx.png` for `xx` = 0, 1, and 2.
-* Reconstruct the image corresponding to `ct_image_xx_sinog.png` for `xx` = 4 and 5.
-* To do so, complete the code template `exercise.py`
-
+## Code and data
 ### How to get the code?
 * Windows PowerShell
     ```powershell
@@ -30,3 +26,16 @@
     wget https://www.creatis.insa-lyon.fr/~ducros/AR/data.zip
     unzip -xvf data.zip
     ```
+
+## Exercise
+
+> Complete the code template `exercise.py`
+
+* **Exercise 1**: Compute the Radon transform of `ct_image_xx.png` for `xx` = 0, 1, and 2.
+
+* **Exercise 2**: Reconstruct the image corresponding to `ct_image_xx_sinog.png` for `xx` = 4 and 5.
+
+* **Exercise 3**: Reconstruct `ct_image_4_sinog.png` with 2% additive Gaussian noise using different filters (e.g., ramp, cosine, hann, no filter).
+
+* **Exercise 3**: Construct the discrete forward operator corresponding to the Radon transform of a $I_1\times I_2 = 32 \times 32$ image computed under $J = 90$ view angles over $[0,\pi)$ using a linear detector of $K = 45$ pixels.
+

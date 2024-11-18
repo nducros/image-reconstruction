@@ -150,7 +150,7 @@ n_angle = 90
 n_detec = 45
 
 # Init matrix A
-A = np.zeros((n_detec*n_angle, img_size*img_size)) #COMLPLETE
+A = np.zeros((n_detec*n_angle, img_size*img_size)) #COMPLETE
 
 # Build the forward operator, one column at a time. 
 theta = np.linspace(0.0, 180.0, n_angle+1)[:-1]
