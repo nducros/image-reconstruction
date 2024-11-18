@@ -146,7 +146,7 @@ for f in filter_list:
 from skimage.transform import rescale
 
 img_size = 32 # we assume image is square
-n_angle = 90
+n_angle = 40
 n_detec = 45
 
 # Init matrix A
@@ -176,6 +176,10 @@ ax.set_ylabel(r"Projection ray $(r, \theta)$")
 ax.set_xlabel(r"Image pixel $x$")
 plt.show()
 
+# save for lecture
+fig.savefig(save_folder / f'forward_{n_detec*n_angle}x{img_size**2}.pdf', 
+            bbox_inches='tight')
+
 
 #%% Check forward operator
 from skimage.data import shepp_logan_phantom
@@ -192,7 +196,7 @@ f = np.reshape(phantom, (-1, 1))
 m = A @ f
 sinog2 = np.reshape(m, (n_detec, n_angle)) 
 
-# Plots ##COMPLETE THE PLOT
+# Plot both sinograms
 fig, (ax1, ax2) = plt.subplots(1, 2, ) #figsize=(8, 4.5)
 ax1.set_title(r"Sinogram from" + "\nRadon function")
 ax1.set_xlabel(r"Projection angle $\theta$ (in deg)")
@@ -205,6 +209,28 @@ ax2.set_ylabel(r"Projection position $r$ (in pixels)")
 ax2.imshow(sinog2, cmap=plt.cm.Greys_r, extent=(0, 180, 0, sinog2.shape[0]), aspect='auto')
 
 fig.tight_layout()
+
+# Plot sinogram
+fig, ax = plt.subplots()
+ax.set_title(r"Sinogram")
+ax.set_xlabel(r"Projection angle $\theta$ (in deg)")
+ax.set_ylabel(r"Projection position $r$ (in pixels)")
+ax.imshow(sinog, cmap=plt.cm.Greys_r, extent=(0, 180, 0, sinog.shape[0]), aspect=5)
+
+# save for lecture
+fig.savefig(save_folder / f'sinog_{n_detec*n_angle}.pdf', 
+            bbox_inches='tight')
+
+# Plot image
+fig, ax = plt.subplots()
+ax.set_title("Image")
+plt.xlabel(r'$x_1$ (in pixels)')
+plt.ylabel(r'$x_2$ (in pixels)')
+ax.imshow(phantom, cmap=plt.cm.Greys_r, aspect='equal')
+
+# save for lecture
+fig.savefig(save_folder / f'image_{img_size*img_size}.pdf', 
+            bbox_inches='tight')
 
 #%% Algebraic reconstruction technique
 

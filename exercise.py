@@ -81,7 +81,7 @@ n_detec = #COMPLETE#
 # Init matrix A
 A = np.zeros() #COMPLETE
 
-# Build the forward operator, one column at a time. 
+# Build the forward operator, one column at a time.     
 theta = np.linspace(0.0, 180.0, n_angle+1)[:-1]
 
 for i in range(img_size):

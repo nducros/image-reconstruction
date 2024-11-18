@@ -84,7 +84,7 @@ plt.colorbar()
 from skimage.transform import rescale
 
 img_size = 32  # we assume image is square
-n_angle = 90
+n_angle = 40
 n_detec = 45
 
 # Init matrix A

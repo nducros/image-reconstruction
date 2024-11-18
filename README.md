@@ -37,5 +37,5 @@
 
 * **Exercise 3**: Reconstruct `ct_image_4_sinog.png` with 2% additive Gaussian noise using different filters (e.g., ramp, cosine, hann, no filter).
 
-* **Exercise 3**: Construct the discrete forward operator corresponding to the Radon transform of a $I_1\times I_2 = 32 \times 32$ image computed under $J = 90$ view angles over $[0,\pi)$ using a linear detector of $K = 45$ pixels.
+* **Exercise 4**: Construct the discrete forward operator corresponding to the Radon transform of a $I_1\times I_2 = 32 \times 32$ image computed under $J = 40$ view angles over $[0,\pi)$ using a linear detector of $K = 45$ pixels.
 
