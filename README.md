@@ -27,15 +27,15 @@
     unzip -xvf data.zip
     ```
 
-## Exercise
+## Exercises
 
-> Complete the code template `exercise.py`
+> To complete the exercises, please refer to the code template `exercise.py`, and follow the instructions therein.
 
 * **Exercise 1**: Compute the Radon transform of `ct_image_xx.png` for `xx` = 0, 1, and 2.
 
 * **Exercise 2**: Reconstruct the image corresponding to `ct_image_xx_sinog.png` for `xx` = 4 and 5.
 
-* **Exercise 3**: Reconstruct `ct_image_4_sinog.png` with 2% additive Gaussian noise using different filters (e.g., ramp, cosine, hann, no filter).
+* **Exercise 3**: Reconstruct `ct_image_4_sinog.png` with 2% additive Gaussian noise using different filters (e.g., ramp, cosine, Hann, no filter).
 
 * **Exercise 4**: Construct the discrete forward operator corresponding to the Radon transform of a $I_1\times I_2 = 32 \times 32$ image computed under $J = 40$ view angles over $[0,\pi)$ using a linear detector of $K = 45$ pixels.
 

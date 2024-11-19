@@ -171,10 +171,10 @@ for i in range(img_size):
 # A matrix visualisation
 fig, ax = plt.subplots()
 ax.imshow(A)
+ax.imshow(A, cmap=plt.cm.Greys_r)
 ax.set_title("A")
 ax.set_ylabel(r"Projection ray $(r, \theta)$")
 ax.set_xlabel(r"Image pixel $x$")
-plt.show()
 
 # save for lecture
 fig.savefig(save_folder / f'forward_{n_detec*n_angle}x{img_size**2}.pdf', 
