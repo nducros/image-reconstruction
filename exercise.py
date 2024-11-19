@@ -194,3 +194,39 @@ fig.colorbar(im)
 ax3.set_title(f"Diff ({n_ite} iterations)")
 im = ax3.imshow(phantom-f_rec, cmap=plt.cm.Greys_r)
 fig.colorbar(im)
+
+#%% Exercise 6
+# Reconstruct the sinogram of Exercise 4 by computing the pseudo inverse of the
+# forward matrix and by using a solver for linear systems. How do the 
+# reconstruction times compare?
+
+import scipy.linalg as lin
+import time
+
+# Compute the pseudoinverse
+t0 = time.perf_counter()
+pinv = # COMPLETE
+t0 = time.perf_counter() - t0
+
+# Reconstruct with pseudoinverse 
+t1 = time.perf_counter()
+rec_pi = # COMPLETE
+t1 = time.perf_counter() - t1
+print(f'Recon with pseudoinverse: {t0:.3f} + {t1:.4f} s')
+
+# Reconstruct with a linear solver
+t2 = time.perf_counter()
+rec_solv = # COMPLETE
+t2 = time.perf_counter() - t2
+print(f'Recon with solver: {t2:.3f} s')
+
+# Display results
+fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(12, 4.5))
+ax1.set_title(r"Ground Truth")
+ax1.imshow(phantom, cmap=plt.cm.Greys_r)
+
+ax2.set_title(r"Recon with pseudoinverse")
+ax2.imshow(rec_pi, cmap=plt.cm.Greys_r)
+
+ax3.set_title(r'Recon with solver')
+ax3.imshow(rec_solv, cmap=plt.cm.Greys_r)

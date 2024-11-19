@@ -42,3 +42,5 @@
     * Check your forward matrix by comparing the Radon transform of the Shepp-Logan phantom that is computed using the `radon` function and using your forward matrix.
 
 * **Exercise 5**: Implement the ART reconstruction algorithm and reconstruct the sinogram of Exercise 4.
+
+* **Exercise 6**: Reconstruct the sinogram of Exercise 4 by computing the pseudo inverse of the forward matrix and by using a solver for linear systems. How do the reconstruction times compare?
