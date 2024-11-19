@@ -247,9 +247,9 @@ def art(A, m, n_ite=15, f0=np.zeros((A.shape[1],1)), gamma=1):
         
         m (ndarray): Measurement vector :math:`m`.
         
-        f0 (ndarray, optional): Initialisation. Defaults to 0.
-        
         n_ite (int, optional): Number of iterations. Defaults to 15.
+        
+        f0 (ndarray, optional): Initialisation. Defaults to 0.
         
         gamma (float, optional): Relaxation parameter in )0,1). Defaults to 1.
 
@@ -272,28 +272,37 @@ def art(A, m, n_ite=15, f0=np.zeros((A.shape[1],1)), gamma=1):
             a_m = a_m[:,None] 
             f = f - gamma*(a_m.T @ f - m[ii])*a_m/(a_m.T @ a_m)
     
-    return f, gamma 
+    return f
 
 #%% Reconstruction using ART
-n_ite = 20
+step_ite = 2
 
-f_, _  = art(A, m, I=n_ite)            # 10 iterations
-f2_, _ = art(A, m, I=n_ite, f0 = f_)   # 10 more iterations
+f_ = art(A, m, n_ite=step_ite)                 # 1 iteration
 
-f  = f_.reshape((img_size,img_size))
-f2 = f2_.reshape((img_size,img_size))    
-
-
-# Display results
-fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(12, 4.5))
-ax1.set_title(r"Ground Truth")
-ax1.imshow(phantom, cmap=plt.cm.Greys_r)
-
-ax2.set_title(f"ART ({n_ite} iterations)")
-ax2.imshow(f, cmap=plt.cm.Greys_r)
-
-ax3.set_title(f"ART ({2*n_ite} iterations)")
-ax3.imshow(f2, cmap=plt.cm.Greys_r)
+for ii in range(9):
+    
+    f  = f_.reshape((img_size,img_size))
+    
+    # Display results
+    fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(12, 4.5), layout='compressed')
+    ax1.set_title(r"Ground Truth")
+    im = ax1.imshow(phantom, cmap=plt.cm.Greys_r)
+    fig.colorbar(im)
+    
+    ax2.set_title(f"ART ({step_ite*(ii+1)} iterations)")
+    im = ax2.imshow(f, cmap=plt.cm.Greys_r)
+    fig.colorbar(im)
+    
+    ax3.set_title(f"Diff ({step_ite*(ii+1)} iterations)")
+    im = ax3.imshow(phantom-f, cmap=plt.cm.Greys_r)
+    fig.colorbar(im)
+    
+    fig.savefig(save_folder / f'art_nonoise_{ii+1:02}.pdf', 
+                bbox_inches='tight')
+    
+    # ART recon
+    f2_, _ = art(A, m, n_ite=step_ite, f0 = f_)   # 1 more iteration 
+    f_ = np.copy(f2_)
  
 #%% Solve
 import scipy.linalg as lin

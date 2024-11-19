@@ -37,5 +37,8 @@
 
 * **Exercise 3**: Reconstruct `ct_image_4_sinog.png` with 2% additive Gaussian noise using different filters (e.g., ramp, cosine, Hann, no filter).
 
-* **Exercise 4**: Construct the discrete forward operator corresponding to the Radon transform of a $I_1\times I_2 = 32 \times 32$ image computed under $J = 40$ view angles over $[0,\pi)$ using a linear detector of $K = 45$ pixels.
+* **Exercise 4**: 
+    * Construct the forward matrix corresponding to the Radon transform of a $I_1\times I_2 = 32 \times 32$ image computed under $J = 40$ view angles over $[0,\pi)$ using a linear detector of $K = 45$ pixels.
+    * Check your forward matrix by comparing the Radon transform of the Shepp-Logan phantom that is computed using the `radon` function and using your forward matrix.
 
+* **Exercise 5**: Implement the ART reconstruction algorithm and reconstruct the sinogram of Exercise 4.
