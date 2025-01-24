@@ -1,3 +1,4 @@
 *.png
 *.pdf
 *.brain_large.md
+./data*
