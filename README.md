@@ -45,4 +45,4 @@
 
 * **Exercise 6**: Reconstruct the sinogram of Exercise 4 by computing the pseudo inverse of the forward matrix and by using a solver for linear systems. How do the reconstruction times compare?
 
-* **Hands on**: This hands-on was proposed in the [2023 Deep Learning for Medical Imaging Summer School](https://github.com/openspyrit/spyrit-examples/tree/master/2023_DLMIS). The code is organised in Jupyter notebooks and Python scripts. The notebooks contain the theoretical background, the code for the exercises and the solutions. The code is written in Python and uses the SPyRiT library for image reconstruction. The data consists of 2D and 3D images and sinograms. 
+* **Hands on**: This hands-on was proposed in the [2025 Deep Learning for Medical Imaging Summer School](https://github.com/openspyrit/spyrit-examples/tree/master/2025_DLMIS). The code is organised in Jupyter notebooks and Python scripts. The notebooks contain the theoretical background, the code for the exercises and the solutions. The code is written in Python and uses the SPyRiT library for image reconstruction. The data consists of 2D and 3D images and sinograms. 
