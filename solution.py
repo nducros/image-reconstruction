@@ -44,16 +44,18 @@ sinog = plt.imread(image_file)
 sinog = sinog[:,:,:3].sum(2)/3*255
 
 # plot
+plt.figure()
 plt.imshow(sinog, cmap='gray')
 plt.xlabel(r'$x_1$ (in pixels)')
 plt.ylabel(r'$x_2$ (in pixels)')
 plt.colorbar()
 
 # Compute inverse radon transform using skimage
-theta = np.linspace(0.0, 180.0, max(imag.shape))
+theta = np.linspace(0.0, 180.0, sinog.shape[1])
 recon = iradon(sinog, circle=False, theta=theta)
 
 # plot | todo: specify axis and units
+plt.figure()
 plt.imshow(recon, cmap='gray')
 plt.xlabel(r'$x_1$ (in pixels)')
 plt.ylabel(r'$x_2$ (in pixels)')

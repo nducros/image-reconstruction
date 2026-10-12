@@ -31,7 +31,7 @@ sinog = radon(imag, circle=False, theta=theta)
 plt.imshow(sinog, cmap='gray')
 plt.colorbar()
 
-#%% Exercise 1
+#%% Exercise 2
 # load sinogram 
 # todo | load ct_image_xx.png for xx = 4..5
 image_file = 

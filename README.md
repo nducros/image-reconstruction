@@ -1,18 +1,29 @@
 # Image Reconstruction ---A short tour from analytical to data-driven methods
 
-* The lecture handouts can be downloaded [here](https://www.creatis.insa-lyon.fr/~ducros/AR/AR_lecture_handout_2024.pdf) (2024).
+* The lecture handouts can be downloaded [here](https://www.creatis.insa-lyon.fr/~ducros/AR/lectures.pdf) (2026).
 * The `lesson.py` script generates the images used in the handouts.
 * The `exercise.py` script is a code template for solving the exercises.
 * I have absolutely no idea what `solution.py` is, but I strongly recommend that you do not look at it right now!
 
 ## Code and data
 ### How to get the code?
-* Windows PowerShell
-    ```powershell
-    git clone https://github.com/nducros/image-reconstruction.git
-    cd image-reconstruction
-    ```
+```powershell
+git clone https://github.com/nducros/image-reconstruction.git
+cd image-reconstruction
+```
+### Environment and dependencies
+Create a new environment:
+```shell
+conda create --name tdsi
+conda activate tdsi
+```
+Install the dependencies (tested in 2026):
+```shell
+conda install pip
+pip install spyrit jupyterlab scikit-image h5py opencv-python
+```
 
+## Data
 ### How to download the images and sinograms?
 * Windows PowerShell
     ```powershell
